@@ -11,12 +11,6 @@ export default {
             }
         }
     },
-    mounted() {
-        if(this.product.id) {
-            this.product = store.state.products.find(elem => elem.id === parseInt(this.product.id))
-        }
-
-    },
     methods: {
         addCategory() {
             if(this.category.name) {

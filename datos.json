@@ -63,6 +63,16 @@
       "id": 4,
       "name": "Muebles",
       "description": "asdf asdfadsf asdf asdfasdf asdfafadsf"
+    },
+    {
+      "name": "Nueva",
+      "description": "12easdf",
+      "id": 5
+    },
+    {
+      "name": "Nueva2",
+      "description": "",
+      "id": 6
     }
   ]
 }
