@@ -7,22 +7,21 @@ export const store = {
     state: reactive({
         products: [],
         errors: [],
-        productToEdit: {
-            id: undefined,
-            name: "",
-            uds: "",
-            price: ""
-        }
+        categories: []
     }),
     async loadData() {
+        
         try {
-            var response = await axios.get(url + "/products")
-            response.data.forEach(element => this.state.products.push(element));
+            var respCategories = await axios.get(url + "/categories")
+            var respProducts = await axios.get(url + "/products")
+            respProducts.data.forEach(element => this.state.products.push(element))
+            respCategories.data.forEach(element => this.state.categories.push(element));
 
         } catch (error) {
             this.state.errors.push("Error: " + error.message)
             setTimeout(()=> this.state.errors.splice(0,this.state.errors.length) ,5000)  
         }
+        
     },
     async deleteProduct(id) {
         try {
@@ -65,7 +64,8 @@ export const store = {
             const response = await axios.put(url + "/products/" + product.id, {
                 name: product.name,
                 uds: product.uds,
-                price: product.price
+                price: product.price,
+                category_id: product.category_id
             })
             oldProduct = response.data;
         } catch (error) {
@@ -83,10 +83,32 @@ export const store = {
             setTimeout(()=> this.state.errors.splice(0,1) ,5000) 
         }
     },
-    fillForm(product) {
-        this.state.productToEdit.id = product.id
-        this.state.productToEdit.name = product.name
-        this.state.productToEdit.uds = product.uds
-        this.state.productToEdit.price = product.price
+    async deleteCategory(id) {
+        try {
+            var productsOfCategory = this.state.products.find(elem => elem.category_id === parseInt(id))
+            if(productsOfCategory) {
+                this.state.errors.push("Error al borrar categoría: La categoría tiene productos asociados")
+                setTimeout(()=> this.state.errors.splice(0,1) ,5000)
+                return
+            }
+            var response = await axios.delete(url + "/categories/" + id)
+            let index = this.state.categories.findIndex(item => item.id === id)
+            this.state.categories.splice(index, 1)
+
+        } catch (error) {
+            this.state.errors.push("Error al borrar categoría: " + error.message)
+            setTimeout(()=> this.state.errors.splice(0,1) ,5000) 
+        }
+    },
+    async addCategory(category) {
+        try {
+            let response = await axios.post(url + "/categories", category)
+            this.state.categories.push(response.data)
+            
+        } catch (error) {
+            this.state.errors.push("Error al añadir la categoría: " + error.message)
+            setTimeout(()=> this.state.errors.splice(0,1) ,5000) 
+        }
     }
+    
 }

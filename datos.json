@@ -1,34 +1,68 @@
 {
   "products": [
     {
-      "name": "asdsdf",
-      "uds": 1,
-      "price": "1",
-      "id": 1
-    },
-    {
-      "name": "dsfafsd",
-      "uds": 1,
-      "price": "1",
+      "name": "AAAAAA",
+      "uds": 11,
+      "price": "10",
+      "category_id": 1,
       "id": 2
     },
     {
-      "name": "dsfafsd",
-      "uds": 1,
-      "price": "1",
-      "id": 3
-    },
-    {
       "name": "asdfasdf",
-      "uds": 1,
+      "uds": 3,
       "price": "1",
-      "id": 4
+      "id": 4,
+      "category_id": 2
     },
     {
-      "name": "asdfasdfasdf",
-      "uds": 10,
+      "name": "VVVVVVVVVVV",
+      "uds": 12,
+      "price": "12",
+      "id": 5,
+      "category_id": 4
+    },
+    {
+      "name": "eEEEEeeeeeeEEE",
+      "uds": 1,
       "price": "1",
-      "id": 5
+      "id": 6,
+      "category_id": 3
+    },
+    {
+      "name": "qqqqwwwqq",
+      "uds": 12,
+      "price": "12",
+      "id": 7,
+      "category_id": 1
+    },
+    {
+      "name": "sfasfd",
+      "uds": 1,
+      "price": "1",
+      "category_id": 3,
+      "id": 9
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electrodomésticos",
+      "description": "asdf asdfadsf asdf asdfasdf asdfafadsf"
+    },
+    {
+      "id": 2,
+      "name": "Hogar",
+      "description": "asdf asdfadsf asdf asdfasdf asdfafadsf"
+    },
+    {
+      "id": 3,
+      "name": "Jardín",
+      "description": "asdf asdfadsf asdf asdfasdf asdfafadsf"
+    },
+    {
+      "id": 4,
+      "name": "Muebles",
+      "description": "asdf asdfadsf asdf asdfasdf asdfafadsf"
     }
   ]
 }

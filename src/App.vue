@@ -21,13 +21,19 @@
 </script>
 
 <template>
-  <div class="container">
+  <app-menu></app-menu>
+  <app-title title="Almacén central de productos - ACME SL"></app-title>
+  <app-error></app-error>
+  <router-view :key="$route.fullPath"></router-view>
+  <!-- 
+    <div class="container">
     <app-menu></app-menu>
     <app-title title="Almacén central de productos - ACME SL"></app-title>
     <app-error></app-error>
     <show-products></show-products>
     <product-form></product-form>
   </div>
+-->
  
 </template>
 

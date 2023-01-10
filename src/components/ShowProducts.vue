@@ -29,9 +29,10 @@
                     <tr class="text-white text-center">
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
                         <th scope="col">Uds.</th>
                         <th scope="col">Precio/u</th>
-                        <th scope="col">Importe</th>
+                        <th scope="col">Importe</th>     
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>

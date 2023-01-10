@@ -5,6 +5,11 @@ export default {
     props: {
         product: Object,
     },
+    data(){
+        return {
+           category: store.state.categories.find(elem => elem.id === this.product.category_id)
+        }
+    },
     methods: {
         totalPrice() {
             return this.product.price * this.product.uds
@@ -18,9 +23,6 @@ export default {
         deleteProduct() {
             store.deleteProduct(this.product.id)
         },
-        fillForm() {
-            store.fillForm(this.product)
-        }
     }
 }
 </script>
@@ -28,6 +30,7 @@ export default {
     <tr class="text-center">
         <th scope="row">{{product.id}}</th>
         <td>{{product.name}}</td>
+        <td>{{this.category.name}}</td>
         <td>{{product.uds}}</td>
         <td>{{product.price}}€</td>
         <td>{{totalPrice()}}€</td>
@@ -35,8 +38,7 @@ export default {
             <button class="btn btn-secondary m-2" @click="increaseProduct()" ><i class="bi bi-arrow-up-circle"></i></button>
             <button class="btn btn-secondary" @click="decreaseProduct()" :disabled="product.uds <= 0"><i class="bi bi-arrow-down-circle"></i></button>
             <button class="btn btn-secondary m-2" @click="deleteProduct()"><i class="bi bi-trash-fill"></i></button>
-            <button class="btn btn-secondary" @click="fillForm()"><i class="bi bi-pencil-fill"></i></button>
-        </td>
+            <router-link class="btn btn-warning m-1" :to="{ name: 'editProduct', params:{id: product.id}}"><i class="bi bi-pencil"></i></router-link>        </td>
     </tr>
     
 </template>

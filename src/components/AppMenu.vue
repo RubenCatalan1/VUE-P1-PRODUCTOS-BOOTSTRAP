@@ -7,11 +7,12 @@ export default {
 <template>
     <div class="row">
     <nav class="navbar navbar-dark bg-dark">
-        <div class="col-3 display-6 text-white">Almacén ACME</div>
-        <div class="col-2 display-9 text-white">Productos</div>
-        <div class="col-2 display-9 text-white">Categorías</div>
-        <div class="col-2 display-9 text-white">Añadir Producto</div>
-        <div class="col-2 display-9 text-white">Añadir Categoría</div>
+        <div class="col-2 display-6 text-white">Almacén ACME</div>
+        <router-link class="col-2 display-9 text-white" to='/'>Productos</router-link>
+        <router-link class="col-2 display-9 text-white" to='/categories'>Categorías</router-link>
+        <router-link class="col-2 display-9 text-white" to="/productForm">Añadir Producto</router-link>
+        <router-link class="col-2 display-9 text-white" to="/categoryForm">Añadir Categoría</router-link>
+        <router-link class="col-2 display-9 text-white" to="/about">About</router-link>
     </nav>
     </div>
 </template>
